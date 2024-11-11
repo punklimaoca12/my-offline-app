@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semangat untuk Kamu!</title>
+    <link rel="stylesheet" href="style.css"> <!-- Ini adalah link ke file CSS -->
+</head>
+<body>
+
+    <div id="message-box">
+        <div id="message">Hai kamu, harapan indahku!</div>
+        <button onclick="showMessage()">Butuh Semangat Lagi?</button>
+        <button id="music-toggle" onclick="toggleMusic()">🎶 Putar / Jeda Musik</button>
+    </div>
+
+    <!-- Tambahkan musik latar -->
+    <audio id="background-music" src="audio/gemuruh-riuh.mp3" loop></audio>
+    <audio id="button-sound" src="audio/button-sound.mp3"></audio>
+
+
+    <script src="script.js"></script>
+    
+    <!-- Pendaftaran Service Worker -->
+    <script>
+        // Cek apakah browser mendukung Service Worker
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker
+              .register('/service-worker.js')  // Mendaftarkan service worker
+              .then((registration) => {
+                console.log('Service Worker terdaftar dengan sukses:', registration);
+              })
+              .catch((error) => {
+                console.log('Pendaftaran Service Worker gagal:', error);
+              });
+          });
+        }
+      </script>
+
+</body>
+</html>
